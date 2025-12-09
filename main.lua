@@ -1,44 +1,4 @@
-wait(3)
 
--- Erstelle ein Flag um zu prüfen ob GUI bereits existiert
-if _G.AutoRobberyLoaded then
-    game:GetService("StarterGui"):SetCore("SendNotification", {
-        Title = "Info",
-        Text = "Script ist bereits geladen!",
-        Duration = 3
-    })
-    return
-end
-_G.AutoRobberyLoaded = true
-
--- Auto Execute Setup - Einfache Version
-print("Successfully activated Auto Execute")
-
-if queue_on_teleport then
-    queue_on_teleport([[
-        print("Successfully executed ZyneyHub Autorob")
-        game:GetService("StarterGui"):SetCore("SendNotification", {
-            Title = "Auto Execute",
-            Text = "Successfully executed AutoRob",
-            Duration = 10
-        })
-    ]])
-elseif syn and syn.queue_on_teleport then
-    syn.queue_on_teleport([[
-        print("Successfully executed ZyneyHub Autorob")
-        game:GetService("StarterGui"):SetCore("SendNotification", {
-            Title = "Auto Execute",
-            Text = "Successfully executed AutoRob",
-            Duration = 10
-        })
-    ]])
-end
-
-game:GetService("StarterGui"):SetCore("SendNotification", {
-    Title = "Auto Execute",
-    Text = "Successfully activated. AutoRob will execute at ServerHop!",
-    Duration = 10
-})
 
 local OrionLib = loadstring(game:HttpGet("https://pastebin.com/raw/ArNVN7WZ"))()
 
