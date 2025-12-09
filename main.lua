@@ -1,6 +1,17 @@
+wait(3)
 
+-- Erstelle ein Flag um zu prüfen ob GUI bereits existiert
+if _G.AutoRobberyLoaded then
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Info",
+        Text = "Script ist bereits geladen!",
+        Duration = 3
+    })
+    return
+end
+_G.AutoRobberyLoaded = true
 
-local OrionLib = loadstring(game:HttpGet("https://pastebin.com/raw/ArNVN7WZ"))()
+local OrionLib = loadstring(game:HttpGet("https://pastebin.com/raw/He3Yd2Hi"))()
 
 local Window = OrionLib:MakeWindow({
   Name = "ZyneyHub ・ AutoRob",
@@ -49,7 +60,7 @@ local Section = AutorobberyTab:AddSection({
     Name = "Autorobbery Script"
 })
 
-AutorobberyTab:AddParagraph("Auto-Execute Status", "✅ Auto-Execute aktiv (Server-Hop)")
+AutorobberyTab:AddParagraph("Server-Hop Status", "✅ Server-Hop aktiviert")
 
 local Section = AutorobberyTab:AddSection({
     Name = "Autorobbery Options"
@@ -802,7 +813,7 @@ local function RobJewelryStore()
     return true
 end
 
--- Einfacher Server-Hop
+-- Einfacher Server-Hop (bleibt erhalten)
 local function serverHop()
     local TeleportService = game:GetService("TeleportService")
     local Players = game:GetService("Players")
